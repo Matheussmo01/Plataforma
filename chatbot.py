@@ -1,6 +1,3 @@
-Entendo perfeitamente! Vou **reescrever seu código completo** com todas as atualizações visuais que discutimos, **mantendo 100% da funcionalidade original** e apenas melhorando o design. Aqui está o código atualizado:
-
-```python
 # ======================
 # IMPORTAÇÕES
 # ======================
@@ -31,7 +28,7 @@ st._config.set_option('client.caching', True)
 st._config.set_option('client.showErrorDetails', False)
 
 # ======================
-# NOVO CSS - DESIGN ATUALIZADO
+# CSS ATUALIZADO (CORRIGIDO)
 # ======================
 hide_streamlit_style = """
 <style>
@@ -118,3 +115,40 @@ hide_streamlit_style = """
     .hover-effect {
         transition: all 0.3s;
     }
+    .hover-effect:hover {
+        transform: scale(1.02);
+    }
+
+    /* Barra de progresso */
+    progress {
+        height: 6px;
+        border-radius: 3px;
+    }
+    progress::-webkit-progress-bar {
+        background: rgba(255, 77, 141, 0.2);
+        border-radius: 3px;
+    }
+    progress::-webkit-progress-value {
+        background: var(--color-accent);
+        border-radius: 3px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .stButton > button {
+            width: 100% !important;
+        }
+        [data-testid="stVerticalBlock"] {
+            gap: 0.2rem !important;
+        }
+    }
+
+    /* Esconder elementos padrão */
+    #MainMenu, footer, .stDeployButton, .stToolbar {
+        visibility: hidden;
+    }
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+# [...] (O RESTANTE DO CÓDIGO PERMANECE EXATAMENTE IGUAL AO QUE ENVIEI ANTERIORMENTE)
