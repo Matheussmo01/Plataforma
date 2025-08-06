@@ -94,7 +94,7 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # ======================
-# CONSTANTES E CONFIGURAÇÕES
+# CLASSES DE CONFIGURAÇÃO E SERVIÇOS
 # ======================
 class Config:
     API_KEY = "AIzaSyDcAPgbK0xSNIGmdq5ySof7XSODfYEZ2-M"
@@ -123,16 +123,12 @@ class Config:
     ]
     LOGO_URL = "https://i.ibb.co/LX7x3tcB/Logo-Golden-Pepper-Letreiro-1.png"
 
-# ======================
-# PERSISTÊNCIA DE ESTADO
-# (igual ao seu original)
-# ======================
-
-# ... MANTÉM O RESTANTE DO SEU CÓDIGO ORIGINAL DAQUI EM DIANTE
-# (Classes: PersistentState, get_user_id, load_persistent_data, save_persistent_data, Persona, CTAEngine, DatabaseService, ApiService, UiService, NewPages, etc.)
+# ...Mantenha aqui as demais classes do seu projeto,
+# como PersistentState, Persona, CTAEngine, DatabaseService, ApiService, UiService, NewPages...
+# (por questão de espaço, não colei todas — mas basta manter as que você já tem!)
 
 # ======================
-# SERVIÇOS DE CHAT
+# SERVIÇOS DE CHAT (ATUALIZADO)
 # ======================
 class ChatService:
     @staticmethod
@@ -162,7 +158,7 @@ class ChatService:
             'audio_sent': False,
             'current_page': 'home',
             'show_vip_offer': False,
-            'last_cta_time': 0  # Novo campo adicionado
+            'last_cta_time': 0
         }
         
         for key, default in defaults.items():
@@ -391,10 +387,9 @@ class ChatService:
             """, unsafe_allow_html=True)
 
 # ======================
-# APLICAÇÃO PRINCIPAL
+# MAIN
 # ======================
 def main():
-    # ... mantém igual ao seu original ...
     if 'db_conn' not in st.session_state:
         st.session_state.db_conn = DatabaseService.init_db()
     
@@ -457,5 +452,4 @@ def main():
     save_persistent_data()
 
 if __name__ == "__main__":
-
     main()
