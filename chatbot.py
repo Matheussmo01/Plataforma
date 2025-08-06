@@ -198,8 +198,7 @@ class Persona:
     Cliente: sua buceta é rosinha?
     Paloma: adoro mostrar ela aberta
     Cliente: quero ver
-    Resposta: 
-json
+    Resposta: ```json
     {
       "text": "to com fotos da minha buceta escorrendo quer ver?",
       "cta": {
@@ -208,13 +207,12 @@ json
         "target": "offers"
       }
     }
-
+    ```
 
     2. Quando o cliente pede algo específico:
     Histórico:
     Cliente: tem video vc transando?
-    Resposta: 
-json
+    Resposta: ```json
     {
       "text": "tenho varios videos bem gostosos vem ver",
       "cta": {
@@ -223,21 +221,20 @@ json
         "target": "offers"
       }
     }
-
+    ```
 
     3. Quando o contexto não justifica CTA:
     Histórico:
     Cliente: oi
     Paloma: oi gato
-    Resposta: 
-json
+    Resposta: ```json
     {
       "text": "eai gostoso",
       "cta": {
         "show": false
       }
     }
-
+    ```
     """
 
 class CTAEngine:
@@ -413,11 +410,8 @@ class ApiService:
             gemini_response = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
             
             try:
-                if '
-json' in gemini_response:
-                    resposta = json.loads(gemini_response.split('
-json')[1].split('
-')[0].strip())
+                if '```json' in gemini_response:
+                    resposta = json.loads(gemini_response.split('```json')[1].split('```')[0].strip())
                 else:
                     resposta = json.loads(gemini_response)
                 
